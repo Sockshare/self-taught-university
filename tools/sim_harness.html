@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Self-Taught — Simulation Harness</title>
+<link rel="stylesheet" href="../static/sims/sims.css">
+<style>
+  body { margin: 0; background: #0f1222; color: #e8ebff; font-family: Inter, system-ui, sans-serif; }
+  .harness { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
+  .list { border-right: 1px solid rgba(255,255,255,.08); padding: 12px; overflow: auto; }
+  .list button { display: block; width: 100%; text-align: left; margin: 2px 0; padding: 8px 10px; background: #161a2e; color: #e8ebff; border: 1px solid rgba(255,255,255,.08); border-radius: 8px; cursor: pointer; }
+  .list button.active { border-color: #7c9cff; }
+  .main { padding: 16px; }
+  #log { font: 12px/1.4 ui-monospace, monospace; color: #ff8fab; white-space: pre-wrap; margin-top: 12px; }
+</style>
+</head>
+<body>
+<div class="harness">
+  <div class="list" id="list"></div>
+  <div class="main">
+    <div id="mount"></div>
+    <div id="log"></div>
+  </div>
+</div>
+<script src="../static/sims/core.js"></script>
+<!-- SIM FILES: add new files here -->
+<script src="../static/sims/physics.js"></script>
+<script src="../static/sims/chemistry.js"></script>
+<script src="../static/sims/math.js"></script>
+<script src="../static/sims/ai.js"></script>
+<script src="../static/sims/robotics.js"></script>
+<script src="../static/sims/philosophy.js"></script>
+<script src="../static/sims/languages.js"></script>
+<script src="../static/sims/arcade_expansion.js"></script>
+<script src="../static/sims/new_domains_arcade.js"></script>
+<script src="../static/sims/psychology_a.js"></script>
+<script src="../static/sims/psychology_b.js"></script>
+<script>
+  const log = document.getElementById("log");
+  window.addEventListener("error", (e) => { log.textContent += "\n[error] " + e.message + " @ " + (e.filename || "").split("/").pop() + ":" + e.lineno; });
+  const list = document.getElementById("list");
+  const mountEl = document.getElementById("mount");
+  let current = null;
+  const sims = SelfTaughtSims.list();
+  log.textContent = `${sims.length} simulations registered: ${sims.map(s => s.id).join(", ")}`;
+  function show(id) {
+    if (current) current.destroy();
+    document.querySelectorAll(".list button").forEach((b) => b.classList.toggle("active", b.dataset.id === id));
+    current = SelfTaughtSims.mount(id, mountEl, {
+      onAward: (ch, def) => { log.textContent += `\n[award] ${def.id}:${ch.id} +${ch.xp || 10}xp`; },
+      onEvent: (n, d) => { log.textContent += `\n[event] ${n} ${JSON.stringify(d)}`; },
+    });
+    location.hash = id;
+  }
+  sims.forEach((s) => {
+    const b = document.createElement("button"); b.textContent = `${s.name}  (${s.id})`; b.dataset.id = s.id; b.onclick = () => show(s.id); list.appendChild(b);
+  });
+  const first = (location.hash || "").slice(1);
+  if (sims.length) show(SelfTaughtSims.has(first) ? first : sims[0].id);
+</script>
+</body>
+</html>

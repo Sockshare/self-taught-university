@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Self-Taught — Your Personal University</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦉</text></svg>">
+<!-- Vendored locally (static/vendor) so math, markdown and confetti work fully offline -->
+<link rel="stylesheet" href="/static/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="/static/style.css?v=20261007_6">
+<link rel="stylesheet" href="/static/sims/sims.css?v=20261007_6">
+<script defer src="/static/vendor/katex/katex.min.js"></script>
+<script defer src="/static/vendor/katex/contrib/auto-render.min.js"></script>
+<script src="/static/vendor/marked.min.js"></script>
+<script src="/static/vendor/confetti.browser.min.js"></script>
+<script>
+  // CDN fallback only if a vendored file is missing
+  if (!window.marked) document.write('<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"><\/script>');
+  if (!window.confetti) document.write('<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"><\/script>');
+</script>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <div class="crumbs" id="crumbs"></div>
+      <div class="search">
+        <span class="mag">🔍</span>
+        <input id="search" type="search" placeholder="Search lessons & courses  ( / )" autocomplete="off">
+        <div class="results" id="search-results"></div>
+      </div>
+    </header>
+    <main class="content" id="content"></main>
+  </div>
+</div>
+<script src="/static/sims/core.js?v=20261007_6"></script>
+<script src="/static/sims/physics.js?v=20261007_6" onerror="console.warn('physics sims missing')"></script>
+<script src="/static/sims/chemistry.js?v=20261007_6" onerror="console.warn('chemistry sims missing')"></script>
+<script src="/static/sims/math.js?v=20261007_6" onerror="console.warn('math sims missing')"></script>
+<script src="/static/sims/ai.js?v=20261007_6" onerror="console.warn('ai sims missing')"></script>
+<script src="/static/sims/robotics.js?v=20261007_6" onerror="console.warn('robotics sims missing')"></script>
+<script src="/static/sims/philosophy.js?v=20261007_6" onerror="console.warn('philosophy sims missing')"></script>
+<script src="/static/sims/languages.js?v=20261007_6" onerror="console.warn('languages sims missing')"></script>
+<script src="/static/sims/unique_exp_stem.js?v=20261007_6" onerror="console.warn('unique_exp_stem missing')"></script>
+<script src="/static/sims/unique_exp_human_ai.js?v=20261007_6" onerror="console.warn('unique_exp_human_ai missing')"></script>
+<script src="/static/sims/unique_new_1.js?v=20261007_6" onerror="console.warn('unique_new_1 missing')"></script>
+<script src="/static/sims/unique_new_2.js?v=20261007_6" onerror="console.warn('unique_new_2 missing')"></script>
+<script src="/static/sims/unique_new_3.js?v=20261007_6" onerror="console.warn('unique_new_3 missing')"></script>
+<script src="/static/sims/unique_new_4.js?v=20261007_6" onerror="console.warn('unique_new_4 missing')"></script>
+<script src="/static/sims/arcade_expansion.js?v=20261007_6" onerror="console.warn('arcade_expansion sims missing')"></script>
+<script src="/static/sims/new_domains_arcade.js?v=20261007_6" onerror="console.warn('new_domains_arcade sims missing')"></script>
+<script src="/static/sims/psychology_a.js?v=20261007_6" onerror="console.warn('psychology_a sims missing')"></script>
+<script src="/static/sims/psychology_b.js?v=20261007_6" onerror="console.warn('psychology_b sims missing')"></script>
+<script src="/static/app.js?v=20261007_6"></script>
+<script src="/static/views_home.js?v=20261007_6"></script>
+<script src="/static/views_lesson.js?v=20261007_6"></script>
+<script src="/static/views_advanced.js?v=20261007_6"></script>
+<script src="/static/views_study.js?v=20261007_6"></script>
+<script src="/static/views_degrees.js?v=20261007_6"></script>
+</body>
+</html>

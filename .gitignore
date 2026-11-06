@@ -1,0 +1,29 @@
+# Virtual environments
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Runtime state (created on first launch)
+data/*.db
+data/*.db-wal
+data/*.db-shm
+data/tts_cache/*
+!data/tts_cache/.gitkeep
+data/custom/*
+!data/custom/.gitkeep
+data/*.bak*
+*.log
+
+# Secrets
+.env
+
+# Optional offline Pyodide bundle (see README) — ~42 MB, fetched from CDN otherwise
+static/vendor/pyodide/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
